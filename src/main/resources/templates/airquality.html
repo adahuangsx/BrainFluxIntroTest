@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Result Page</title>
+</head>
+<body>
+<h4>
+Database name:<input type="text" th:value="${dbname}" style="width: 20%"><br/>
+measurement name:<input type="text" th:value="${measurement}" style="width: 20%"><br/>
+SQL command:<input type="text" th:value="${commandco}" style="width: 70%"><br/>
+SQL command:<input type="text" th:value="${commandno2}" style="width: 70%"><br/>
+<br/><br/>
+<table cellpadding="10" cellspacing="10">
+        <thead>
+            <th>Date    </th>
+            <th>mean-CO </th>
+            <th>mean-NO2</th>
+        </thead>
+        <tbody>
+            <tr th:each="air: ${airs}">
+                <td th:text="${air.getDate()}"></td>
+                <td th:text="${air.getCo()}"></td>
+                <td th:text="${air.getNo2()}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+</h4>
+</body>
+</html>

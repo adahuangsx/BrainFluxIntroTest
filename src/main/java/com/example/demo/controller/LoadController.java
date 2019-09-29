@@ -18,7 +18,10 @@ import org.influxdb.InfluxDBFactory;
 import org.influxdb.dto.Point;
 import org.influxdb.dto.Query;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,10 +30,23 @@ import com.csvreader.CsvReader;
 @Controller
 public class LoadController {
 
-	@ResponseBody
+	//@ResponseBody  
+	/*
+	 * Comment this so that .html file in templates can be in use.
+	 */
 	@RequestMapping("/start")
 	public String start() {
-		return "<a href=\"/airquality\">LOAD AirQuality.csv!</a>";
+		
+		return "start";
+	}
+	
+	@RequestMapping("/test")
+	public String index(Model model) {
+		int a = 1;
+		model.addAttribute("a", a);
+		model.addAttribute("age", 20);
+		model.addAttribute("info", "input value..");
+		return "test";
 	}
 	
 	
